@@ -1,0 +1,34 @@
+<p>search works!!</p>
+
+
+<div class="formContainer">
+  <form (ngSubmit)="submitUserData()">
+    <input type="text" name="searchData" placeholder="City, Zip, or Coordinates" [(ngModel)]="searchData" >
+
+    <div class="radioButtons">
+
+      <div class="radioOptions">
+        <label>City
+          <input (click)="searchType='city'" type="radio" name="type">
+        </label>
+      </div>
+
+      <div class="radioOptions">
+        <label>Zipcode
+          <input (click)="searchType='zip'" type="radio" name="type">
+        </label>
+      </div>
+
+      <div class="radioOptions">
+        <label>Coordinates
+          <input (click)="searchType='coordinates'" type="radio" name="type">
+        </label>
+      </div>
+
+
+
+    </div>
+
+    <button type="submit" >Get Weather!</button>
+  </form>
+</div>
