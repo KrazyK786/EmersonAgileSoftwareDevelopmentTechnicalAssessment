@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'EmersonAgileSoftwareDevelopmentTechnicalAssessment';
+  searchData: string;
+  searchType: string;
+
+  submitUserData(): void {
+    console.log(`search data: ${this.searchData}, \n search type: ${this.searchType}`);
+  }
 }
