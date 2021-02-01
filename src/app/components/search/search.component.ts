@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CurrentWeatherService} from '../../services/current-weather.service';
 
 @Component({
@@ -7,6 +7,7 @@ import {CurrentWeatherService} from '../../services/current-weather.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  @Output() updateResults: EventEmitter<any> = new EventEmitter<any>();
   searchData: string;
   searchType: string;
 
@@ -18,9 +19,10 @@ export class SearchComponent implements OnInit {
   }
 
   submitUserData(): void {
-    this.currentWeatherService.getWeather(this.searchType, this.searchData).subscribe(res => {
-      console.log(res);
-    });
+    this.updateResults.emit({searchType: this.searchType, searchData: this.searchData});
+    // this.currentWeatherService.getWeather(this.searchType, this.searchData).subscribe(res => {
+    //   console.log(res);
+    // });
     // console.log(`search data: ${this.searchData}, \n search type: ${this.searchType}`);
   }
 

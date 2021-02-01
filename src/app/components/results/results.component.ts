@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {CurrentWeatherService} from '../../services/current-weather.service';
 
 @Component({
   selector: 'app-results',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
+  @Input() results: any;
 
-  constructor() { }
+  constructor(
+    private currentWeatherService: CurrentWeatherService
+  ) { }
 
   ngOnInit(): void {
   }
