@@ -1,15 +1,15 @@
-<p>search works!!</p>
-
+<!--TODO: make inputs required-->
 
 <div class="formContainer">
   <form (ngSubmit)="submitUserData()">
     <input type="text" name="searchData" placeholder="City, Zip, or Coordinates" [(ngModel)]="searchData" >
 
+<!--    TODO: update input field based on radio button selection to handle coordinates-->
     <div class="radioButtons">
 
       <div class="radioOptions">
         <label>City
-          <input (click)="searchType='city'" type="radio" name="type">
+          <input (click)="searchType='city'" type="radio" name="type" >
         </label>
       </div>
 
@@ -24,8 +24,6 @@
           <input (click)="searchType='coordinates'" type="radio" name="type">
         </label>
       </div>
-
-
 
     </div>
 

@@ -1,2 +1,18 @@
-<p>results works!</p>
-<p>{{results.city.name}}</p>
+<!--TODO: alter to iterate over available properties-->
+
+<div *ngIf="results">
+  <p>City: {{results.city.name}}</p>
+<!--  TODO: should it iterate over the array or just the most recent?-->
+  <div *ngFor="let data of results.list">
+<!--    TODO: figure out how to parse date according to browser timezone -->
+    <p>Date/Time: {{data['dt_txt']}} | date:'short' </p>
+    <p>{{data.weather[0].main}}</p>
+    <p>{{data.weather[0].description}}</p>
+    <p>Current temperature: {{data.main.temp}}°</p>
+    <p>Feels like temperature: {{data.main['feels_like']}}°</p>
+    <p>Cloudiness: {{data.clouds.all}}%</p>
+<!--    <p>Snow volume for last 3 hours: {{data.snow["3h"]}}</p>-->
+    <p>Wind speed: {{data.wind.speed}}</p>
+    <p>Visibility: {{data.visibility}}</p>
+  </div>
+</div>

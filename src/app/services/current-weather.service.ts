@@ -11,12 +11,7 @@ export class CurrentWeatherService {
   baseUrl: string = 'http://api.openweathermap.org/data/2.5/forecast?';
   // TODO: should this be hardcoded?
   appid: string = 'cf002751564a4c78f5f7ed479f1b9ba3';
-  // q: string;
-  // zip: string;
-  // countryCode: string;
-  // lat: string;
-  // lon: string;
-  // searchType: string;
+  units: string = 'imperial';
 
   constructor(
     private http: HttpClient
@@ -45,15 +40,6 @@ export class CurrentWeatherService {
         lon = coordinateArray[1];
     }
 
-    // if (searchType === 'city'){
-    //   this.q = searchTerm;
-    // } else if (searchType === 'zip'){
-    //
-    // } else {
-    //
-    // }
-
-
-    return this.http.get<any>(`${this.baseUrl}zip=${zip}&lat=${lat}&lon=${lon}&q=${q}&appid=${this.appid}`);
+    return this.http.get<any>(`${this.baseUrl}zip=${zip}&lat=${lat}&lon=${lon}&q=${q}&units=${this.units}&appid=${this.appid}`);
   }
 }
